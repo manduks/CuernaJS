@@ -13,8 +13,8 @@ Login = React.createClass({
       if (err) {
         throw new Meteor.Error("Twitter login failed");
       } else {
-          FlowRouter.go('/');
-        }
+          FlowRouter.go('/app');
+      }
     });
   }
 });

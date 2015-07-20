@@ -3,12 +3,17 @@ Toolbar = React.createClass({
     logo: React.PropTypes.string.isRequired,
     logged: React.PropTypes.bool.isRequired
   },
+  getInitialState() {
+    return {
+      notifications  : 0
+    };
+  },
   render() {
     if (this.props.logged) {
       return (
         <header>
           <div className="logo">{this.props.logo}</div>
-          <div className="notifications">Notifications</div>
+          <div className="notifications" onClick={this.showNotifications}><span>{this.state.notifications}</span> Notifications</div>
           <Button text="Logout" onClick={this.handleLogout}/>
         </header>
       );
@@ -31,5 +36,8 @@ Toolbar = React.createClass({
           FlowRouter.go('/');
       };
     });
+  },
+  showNotifications (){
+    FlowRouter.go('/notifications');
   }
 });

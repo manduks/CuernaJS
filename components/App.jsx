@@ -16,7 +16,17 @@ App = React.createClass({
     return (
       <div className="container">
         <Toolbar logo="Logo" logged={!!this.data.currentUser}/>
+        <div id="content">
+          <Button text="Notification" onClick={this.sendNotification}/>
+        </div>
       </div>
     );
+  },
+  sendNotification(){
+    Notifications.insert({
+      text: 'Notification ' + new Date(),
+      createdAt: new Date() // current time
+    });
+    alert('Notification added');
   }
 });

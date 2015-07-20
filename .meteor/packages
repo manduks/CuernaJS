@@ -9,3 +9,5 @@ react
 accounts-twitter
 meteorhacks:flow-router
 service-configuration
+autopublish
+insecure
